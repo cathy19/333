@@ -889,6 +889,13 @@ section {
   width: 35%;
   margin: 0 0.5rem;
 }
+#text{
+  display: inline-flex;
+  width: 270px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .load {
   position: relative;
   border: 1px solid #dee2e6;
