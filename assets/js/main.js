@@ -282,10 +282,10 @@ swiperNavLinks.forEach(function (link) {
     }, false);
 })();
 
-  const selectElement = document.getElementById("upload");
+  // const selectElement = document.getElementById("upload");
   const selectText = document.getElementById("text");
-  selectElement.addEventListener("change", (event) => {
-    selectText.innerHTML = selectElement.value
-  });
+  // selectElement.addEventListener("change", (event) => {
+  //   selectText.innerHTML = selectElement.value
+  // });
 });
 
