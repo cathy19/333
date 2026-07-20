@@ -227,7 +227,7 @@ var mySwiper = new Swiper('.introprize-slider', {
   }
 });
 
-var swiperNavLinks = document.querySelectorAll('.swiper-nav-link');
+var swiperNavLinks = document.querySelectorAll('a[data-slide-to]');
 
 swiperNavLinks.forEach(function (link) {
   link.addEventListener('click', function (e) {
