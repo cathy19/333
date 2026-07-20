@@ -276,3 +276,23 @@ var mySwiper = new Swiper('.introprize-slider', {
     selectText.innerHTML = selectElement.value
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const introprizeSwiper = new Swiper('.introprize-slider', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  const swiperNavLinks = document.querySelectorAll('.swiper-nav-link');
+
+  swiperNavLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
+      if (!isNaN(slideIndex) && introprizeSwiper) {
+        introprizeSwiper.slideTo(slideIndex);
+      }
+    });
+  });
+});
