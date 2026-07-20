@@ -213,20 +213,32 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   
 var mySwiper = new Swiper('.introprize-slider', {
-    speed: 3000,
-    loop: true,
-    autoplay: {
-      delay: 6000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+  speed: 3000,
+  loop: true, 
+  autoplay: {
+    delay: 6000,
+    disableOnInteraction: false
+  },
+  slidesPerView: 'auto',
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true
+  }
+});
+
+var swiperNavLinks = document.querySelectorAll('.swiper-nav-link');
+
+swiperNavLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    var slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
+    
+    if (!isNaN(slideIndex) && mySwiper) {
+      mySwiper.slideToLoop(slideIndex);
     }
   });
-  mySwiper.el.onmouseover = function(){ //鼠標放上停止輪播
+});
+  mySwiper.el.onmouseover = function(){ 
     mySwiper.autoplay.stop();
   }
   mySwiper.el.onmouseleave = function(){
@@ -277,22 +289,3 @@ var mySwiper = new Swiper('.introprize-slider', {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const introprizeSwiper = new Swiper('.introprize-slider', {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-
-  const swiperNavLinks = document.querySelectorAll('.swiper-nav-link');
-
-  swiperNavLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const slideIndex = parseInt(this.getAttribute('data-slide-to'), 10);
-      if (!isNaN(slideIndex) && introprizeSwiper) {
-        introprizeSwiper.slideTo(slideIndex);
-      }
-    });
-  });
-});
